@@ -6,7 +6,7 @@ def get_frame (sec, count):
     vidcap.set(cv.CAP_PROP_POS_MSEC, sec*1000)
     has_frames, image = vidcap.read()
     if has_frames:
-        cv.imwrite("image" + str(count) + ".jpg", image)
+        cv.imwrite(os.path.join( './binary/', "image" + str(count) + ".jpg" ), image)
     return has_frames
 
 
