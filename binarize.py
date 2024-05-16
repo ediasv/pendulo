@@ -2,7 +2,22 @@ import os
 import cv2 as cv
 import numpy as np
 
-pixel_to_cm = 9/27550
+pixel_to_cm = 9/27550 # relação de cm/pixel (considerando que o penulo foi solto de um ângulo inicial de aprox 10 graus)
+# a massa utilizada tinha aproximadamente 102g e o comprimento do pendulo era de aproximadamente 52cm
+
+def binarize(image):
+    image = cv.cvtColor(image, cv.COLOR_BGR2GRAY) # converte o frame pra grayscale
+    image = cv.medianBlur(image, 5) # tira pontos brancos
+    image = cv.threshold(image, 100, 255, cv.THRESH_BINARY_INV)[1] # binariza
+    return image
+
+
+def center_of_mass(image):
+    M = cv.moments(image)
+    cX = int(M["m10"] / M["m00"]) # calculo da coordenada x do centro de massa
+    cY = int(M["m01"] / M["m00"]) # calculo da coordenada x do centro de massa
+    cv.circle(image, (cX, cY), 3, (0, 0, 0), -1) # desenhando o centro de massa
+    return cX, cY
 
 def get_frame(sec, count):
     vidcap = cv.VideoCapture('video.mp4')
