@@ -1,0 +1,5 @@
+set grid
+set xlabel 't (s)'
+set ylabel 'x (m)'
+
+plot './input/posxt.txt' using 1:2 notitle

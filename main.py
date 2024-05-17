@@ -1,5 +1,6 @@
 import os
 import cv2 as cv
+import numpy as np
 
 pixel_to_cm = 9/27550 # relação de cm/pixel (considerando que o penulo foi solto de um ângulo inicial de aprox 10 graus)
 # a massa utilizada tinha aproximadamente 102g e o comprimento do pendulo era de aproximadamente 52cm
@@ -20,9 +21,9 @@ def center_of_mass(image):
 
 def save_data(sec, cX):
     if sec:
-        f = open('./posxt.txt', 'a')
+        f = open('./output/posxt.txt', 'a')
     else:
-        f = open('./posxt.txt', 'w')
+        f = open('./output/posxt.txt', 'w')
     f.write(f'{sec}    {cX*pixel_to_cm}\n')
     f.close()
 
@@ -34,9 +35,25 @@ def get_frame(sec, count):
     if has_frames: # se o video ainda não tiver acabado
         image = binarize(image)
         cX = center_of_mass(image)
-        save_data(sec, cX)
-        cv.imwrite(os.path.join( './binarized_images/', "image" + str(count) + ".jpg" ), image) # salva o frame na pasta ./binary_images/
+        salva_tempo(sec)
+        salva_espaco(cX)
+        # x_data[count-1] = sec
+        # y_data[count-1] = cX*pixel_to_cm
+        # save_data(sec, cX)
+        # cv.imwrite(os.path.join( './binarized_images/', "image" + str(count) + ".jpg" ), image) # salva o frame na pasta ./binary_images/
     return has_frames
+
+
+def salva_tempo(sec):
+    dados_tempo = open('./output/tempos.txt', 'a')
+    dados_tempo.write(f'{sec}\n')
+    dados_tempo.close()
+
+
+def salva_espaco(pos):
+    dados_espaciais = open('./output/espacos.txt', 'a')
+    dados_espaciais.write(f'{pos}\n')
+    dados_espaciais.close()
 
 
 def expand_video():
@@ -57,6 +74,8 @@ def plot_graph():
 
 def main():
     # expand_video()
+    for i in x_data:
+        print(i)
     # plot_graph()
     pass
 
