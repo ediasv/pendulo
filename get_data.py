@@ -1,6 +1,5 @@
-import os
 import cv2 as cv
-import numpy as np
+
 
 pixel_to_cm = 9/27550 # relação de cm/pixel (considerando que o penulo foi solto de um ângulo inicial de aprox 10 graus)
 # a massa utilizada tinha aproximadamente 102g e o comprimento do pendulo era de aproximadamente 52cm
@@ -19,64 +18,42 @@ def center_of_mass(image):
     return cX
 
 
-def save_data(sec, cX):
-    if sec:
-        f = open('./output/posxt.txt', 'a')
-    else:
-        f = open('./output/posxt.txt', 'w')
-    f.write(f'{sec}    {cX*pixel_to_cm}\n')
-    f.close()
-
-
-def get_frame(sec, count):
+def get_frame(sec):
     vidcap = cv.VideoCapture('video.mp4')
     vidcap.set(cv.CAP_PROP_POS_MSEC, sec*1000)
     has_frames, image = vidcap.read() # pega um frame do video
     if has_frames: # se o video ainda não tiver acabado
         image = binarize(image)
         cX = center_of_mass(image)
-        salva_tempo(sec)
-        salva_espaco(cX)
-        # x_data[count-1] = sec
-        # y_data[count-1] = cX*pixel_to_cm
-        # save_data(sec, cX)
-        # cv.imwrite(os.path.join( './binarized_images/', "image" + str(count) + ".jpg" ), image) # salva o frame na pasta ./binary_images/
+        write_time(sec)
+        write_pos(cX)
     return has_frames
 
 
-def salva_tempo(sec):
+def write_time(sec):
     dados_tempo = open('./output/tempos.txt', 'a')
     dados_tempo.write(f'{sec}\n')
     dados_tempo.close()
 
 
-def salva_espaco(pos):
+def write_pos(pos):
     dados_espaciais = open('./output/espacos.txt', 'a')
-    dados_espaciais.write(f'{pos}\n')
+    dados_espaciais.write(f'{pos*pixel_to_cm}\n') # conversao da unidade de medida da posicao de pixel para cm (baseada nos dados experimentais)
     dados_espaciais.close()
 
 
 def expand_video():
     sec = 0
-    count = 1 # variavel auxiliar pra salvar os nomes dos arquivos em ordem crescente
     frame_rate = round(1/30, 2) # 30 fps
-    success = get_frame(sec, count)
+    success = get_frame(sec)
     while success:
-        count += 1
         sec += frame_rate
         sec = round(sec, 2)
-        success = get_frame(sec, count)
-
-
-def plot_graph():
-    return
+        success = get_frame(sec)
 
 
 def main():
-    # expand_video()
-    for i in x_data:
-        print(i)
-    # plot_graph()
+    expand_video()
     pass
 
 
