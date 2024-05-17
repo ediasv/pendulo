@@ -23,7 +23,7 @@ def save_data(sec, cX):
         f = open('./posxt.txt', 'a')
     else:
         f = open('./posxt.txt', 'w')
-    f.write(f'{sec} {cX*pixel_to_cm}\n')
+    f.write(f'{sec}    {cX*pixel_to_cm}\n')
     f.close()
 
 
@@ -57,7 +57,7 @@ def plot_graph():
 
 def main():
     # expand_video()
-    plot_graph()
+    # plot_graph()
     pass
 
 
