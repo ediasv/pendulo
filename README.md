@@ -18,10 +18,6 @@ sobre os pontos a equação do oscilador harmônico amortecido
 6) Determinar o fator de qualidade do sistema  
 7) Gravar um [video e postar no youtube](https://youtu.be/rHrgEify1PU?si=S-0SSjtIsMe18HF6), explicando todo o processo.  
 
-https://github.com/ediasv/pendulo/assets/142503604/fc2210a8-9284-4475-805c-ec923d61ca27
-
-![grafico](https://github.com/ediasv/pendulo/assets/142503604/3b0b0c02-e343-46d5-aec1-fd72fa8430af)
-
 ---
 
 # EN
@@ -43,3 +39,8 @@ Project requirements:
     equation to the data points.
 6)  Determine the quality factor of the system.
 7)  Record a [video and post it on youtube](https://youtu.be/rHrgEify1PU?si=S-0SSjtIsMe18HF6), explaining the whole process.
+
+
+https://github.com/ediasv/pendulo/assets/142503604/fc2210a8-9284-4475-805c-ec923d61ca27
+
+![grafico](https://github.com/ediasv/pendulo/assets/142503604/3b0b0c02-e343-46d5-aec1-fd72fa8430af)
