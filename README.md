@@ -32,13 +32,13 @@ The recorded video was then processed frame by frame to determine the horizontal
 
 ## Results
 
-The extracted position data can be visualized over time to observe the oscillatory motion and the gradual reduction in amplitude caused by damping.
-
-![Experimental pendulum data](https://github.com/ediasv/pendulo/assets/142503604/3b0b0c02-e343-46d5-aec1-fd72fa8430af)
-
 ### Experiment video
 
 https://github.com/ediasv/pendulo/assets/142503604/fc2210a8-9284-4475-805c-ec923d61ca27
+
+### Experimental data
+
+![grafico](https://github.com/ediasv/pendulo/assets/142503604/3b0b0c02-e343-46d5-aec1-fd72fa8430af)
 
 A presentation of the complete experiment and analysis is also available on [YouTube](https://youtu.be/rHrgEify1PU?si=S-0SSjtIsMe18HF6).
 
