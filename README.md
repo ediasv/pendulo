@@ -34,11 +34,11 @@ The recorded video was then processed frame by frame to determine the horizontal
 
 ### Experiment video
 
-https://github.com/ediasv/pendulo/assets/142503604/fc2210a8-9284-4475-805c-ec923d61ca27
+![test](https://github.com/ediasv/pendulo/assets/gifpendulo.gif)
 
 ### Experimental data
 
-![grafico](https://github.com/ediasv/pendulo/assets/142503604/3b0b0c02-e343-46d5-aec1-fd72fa8430af)
+![grafico](https://github.com/ediasv/pendulo/assets/graficopendulo.png)
 
 A presentation of the complete experiment and analysis is also available on [YouTube](https://youtu.be/rHrgEify1PU?si=S-0SSjtIsMe18HF6).
 
