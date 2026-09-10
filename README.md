@@ -1,46 +1,55 @@
-# PT-BR
+# Pendulum Motion Analysis
 
-Trabalho realizado para a disciplina Física 2.  
-   
-Requisitos do trabalho:  
-1) Vocês precisam montar um pêndulo simples em uma base fixa (uma
-massa de valor M aprox 100 g pendurada por um barbante de comprimento L aprox 0.5 m, na frente
-de um fundo que produza contraste).  
-2) Filmar o pêndulo oscilando por um minuto, a partir de um ângulo de
-pouco mais de 10º (se for pedante, use um transferidor para medir o ângulo e um suporte para liberar
-o peso de sua posição inicial)  
-3) Converter a imagem em frames (usando ffmpeg ou OpenCV) e passar um filtro de
-cores na imagem para localizar a posição da massa  
-4) Salvar em um arquivo txt o instante de tempo do frame e a
-respectiva posição x do pêndulo  
-5) Usar um software como o gnuplot, scidavis, ou origin para ajustar
-sobre os pontos a equação do oscilador harmônico amortecido  
-6) Determinar o fator de qualidade do sistema  
-7) Gravar um [video e postar no youtube](https://youtu.be/rHrgEify1PU?si=S-0SSjtIsMe18HF6), explicando todo o processo.  
+Experimental Physics II project that uses video processing to analyze the motion of a damped simple pendulum.
 
----
+The experiment consists of recording a pendulum in motion, tracking the horizontal position of its mass over time, and using the resulting data to study the damped harmonic oscillator and determine the system's quality factor.
 
-# EN
+## Experiment
 
-Work done for the Physics 2 course.
+A simple pendulum was assembled using a mass of approximately **100 g** attached to a string approximately **0.5 m** long. The pendulum was released from an initial angle slightly greater than **10°** and recorded for approximately one minute against a contrasting background.
 
-Project requirements:
+The recorded video was then processed frame by frame to determine the horizontal position of the pendulum mass throughout the experiment.
 
-1)  You need to assemble a simple pendulum on a fixed base (a
-    mass M of approx. 100 g hanging from a string of length L approx. 0.5 m, in front
-    of a contrasting background).
-2)  Film the pendulum oscillating for one minute, starting from an angle of
-    just over 10º (if you want to be precise, use a protractor to measure the angle and a stand to release
-    the weight from its initial position).
-3)  Convert the video into frames (using ffmpeg or OpenCV) and apply a color filter
-    to the image to locate the position of the mass.
-4)  Save the frame's timestamp and the corresponding x-position of the pendulum to a .txt file.
-5)  Use software like gnuplot, scidavis, or origin to fit the damped harmonic oscillator
-    equation to the data points.
-6)  Determine the quality factor of the system.
-7)  Record a [video and post it on youtube](https://youtu.be/rHrgEify1PU?si=S-0SSjtIsMe18HF6), explaining the whole process.
+## Workflow
 
+1. Record the pendulum oscillating.
+2. Process the video frame by frame.
+3. Apply color-based filtering to locate the pendulum mass.
+4. Store each frame timestamp and corresponding horizontal position.
+5. Plot the experimental data.
+6. Fit the damped harmonic oscillator model to the measurements.
+7. Determine the quality factor of the system.
+
+## Repository Structure
+
+```text
+.
+├── get_data.py    # Extracts position data from the recorded experiment
+├── plot.py        # Plots the collected data
+├── output/        # Generated experimental output
+└── README.md
+```
+
+## Results
+
+The extracted position data can be visualized over time to observe the oscillatory motion and the gradual reduction in amplitude caused by damping.
+
+![Experimental pendulum data](https://github.com/ediasv/pendulo/assets/142503604/3b0b0c02-e343-46d5-aec1-fd72fa8430af)
+
+### Experiment video
 
 https://github.com/ediasv/pendulo/assets/142503604/fc2210a8-9284-4475-805c-ec923d61ca27
 
-![grafico](https://github.com/ediasv/pendulo/assets/142503604/3b0b0c02-e343-46d5-aec1-fd72fa8430af)
+A presentation of the complete experiment and analysis is also available on [YouTube](https://youtu.be/rHrgEify1PU?si=S-0SSjtIsMe18HF6).
+
+## Assignment Requirements
+
+This project was developed for a **Physics II** course. The assignment required:
+
+* assembling a simple pendulum on a fixed base;
+* recording approximately one minute of oscillation;
+* extracting frames from the video and locating the pendulum mass using color filtering;
+* recording the timestamp and horizontal position for each frame;
+* fitting the damped harmonic oscillator equation to the experimental data;
+* determining the system's quality factor;
+* presenting the complete process in a video.
